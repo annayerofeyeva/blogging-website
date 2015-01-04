@@ -68,4 +68,9 @@ main {
     width: 65vw;
     margin-right: auto;
     margin-left: auto;
+    background-color: #eeeeee;
+}
+
+footer {
+    float: right;
 }
