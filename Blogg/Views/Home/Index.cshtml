@@ -1,4 +1,6 @@
-﻿<head>
+﻿@model Blogg.Models.Post
+
+<head>
     <style type="text/css">
         #Button1 {
             width: 196px;
@@ -11,9 +13,41 @@
 
 <div class="jumbotron">
     <h1>What's new:</h1>
-    <p class="lead">The latest posts will be displayed here</p>
-    <p class="lead">
-        <input id="Button1" type="button" value="Older posts" /></p>
+    <table>
+        <tr>
+            <td>
+                ID:
+            </td>
+            <td>
+                @Model.postId
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Author:
+            </td>
+            <td>
+                @Model.postAuthor
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Added:
+            </td>
+            <td>
+                @Model.postAddedAt
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Message:
+            </td>
+            <td>
+                @Model.postContent
+            </td>
+        </tr>
+    </table>
+    <input id="Button1" type="button" value="Older posts" />
 </div>
 
 <div class="row">

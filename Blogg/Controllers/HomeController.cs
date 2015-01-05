@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Blogg.Models;
 
 namespace Blogg.Controllers
 {
@@ -10,7 +11,14 @@ namespace Blogg.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            Post post = new Post()
+            {
+                postId = 1,
+                postAuthor = "Alexander Schechter",
+                postAddedAt = DateTime.Now,
+                postContent = "Welcome to my blogging website!!!"
+            };
+            return View(post);
         }
 
         public ActionResult About()
