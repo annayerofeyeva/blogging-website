@@ -11,13 +11,8 @@ namespace Blogg.Controllers
     {
         public ActionResult Index()
         {
-            Post post = new Post()
-            {
-                postId = 1,
-                postAuthor = "Alexander Schechter",
-                postAddedAt = DateTime.Now,
-                postContent = "Welcome to my blogging website!!!"
-            };
+            PostContext postContext = new PostContext();
+            Post post = postContext.Posts.Single(pst => pst.postAuthor == "Anna");
             return View(post);
         }
 
