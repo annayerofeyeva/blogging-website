@@ -12,7 +12,14 @@ namespace Blogg.Controllers
         public ActionResult Index()
         {
             PostContext postContext = new PostContext();
-            Post post = postContext.Posts.Single(pst => pst.postAuthor == "Anna");
+            List<Post> posts = postContext.Posts.ToList();
+            return View(posts);
+        }
+
+        public ActionResult Post(int id)
+        {
+            PostContext postContext = new PostContext();
+            Post post = postContext.Posts.Single(pst => pst.postId == id);
             return View(post);
         }
 

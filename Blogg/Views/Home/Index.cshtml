@@ -1,4 +1,6 @@
-﻿@model Blogg.Models.Post
+﻿@model IEnumerable<Blogg.Models.Post>
+@using Blogg.Models
+
 
 <head>
     <style type="text/css">
@@ -13,40 +15,14 @@
 
 <div class="jumbotron">
     <h1>What's new:</h1>
-    <table>
-        <tr>
-            <td>
-                ID:
-            </td>
-            <td>
-                @Model.postId
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Author:
-            </td>
-            <td>
-                @Model.postAuthor
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Added:
-            </td>
-            <td>
-                @Model.postAddedAt
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Message:
-            </td>
-            <td>
-                @Model.postContent
-            </td>
-        </tr>
-    </table>
+    @foreach(Post post in @Model)
+    {
+        <table class="posts">
+            <tr><td>@post.postAddedAt</td></tr>
+            <tr><td>@post.postContent</td></tr>
+            <tr><td>@Html.ActionLink("Read more..", "Post", new {id = post.postId})</td></tr>
+        </table>
+    }
     <input id="Button1" type="button" value="Older posts" />
 </div>
 
