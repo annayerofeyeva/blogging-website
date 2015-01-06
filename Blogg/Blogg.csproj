@@ -233,6 +233,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Post.cshtml" />
+    <Content Include="Views\Home\AllPosts.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

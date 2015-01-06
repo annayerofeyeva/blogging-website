@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Blogg.Models.Post>
+
+@{
+    ViewBag.Title = "AllPosts";
+}
+
+<h2>All Posts</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.postAuthor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postAddedAt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.postContent)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.postAuthor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postAddedAt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.postContent)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.postId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.postId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.postId })
+        </td>
+    </tr>
+}
+
+</table>

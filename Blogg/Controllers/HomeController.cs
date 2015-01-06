@@ -16,6 +16,13 @@ namespace Blogg.Controllers
             return View(posts);
         }
 
+        public ActionResult AllPosts()
+        {
+            PostContext postContext = new PostContext();
+            List<Post> posts = postContext.Posts.ToList();
+            return View(posts);
+        }
+
         public ActionResult Post(int id)
         {
             PostContext postContext = new PostContext();
