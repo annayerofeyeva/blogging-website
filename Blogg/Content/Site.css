@@ -66,6 +66,7 @@ ul {
 }
 main {
     width: 65vw;
+    padding-top: 1vw;
     margin-right: auto;
     margin-left: auto;
     background-color: #eeeeee;
@@ -77,7 +78,8 @@ footer {
 
 .post {
     display:flex;
-    border: solid 2px black;
+    border: inset 2.5px white;
     border-radius: 10px;
+    padding: 1vw;
     margin: 2vw;
 }

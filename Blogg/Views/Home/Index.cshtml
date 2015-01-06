@@ -14,10 +14,10 @@
 }
 
 <div class="jumbotron">
-    <h1>What's new:</h1>
+    <h2>What's new:</h2>
     @foreach(Post post in @Model)
     {
-        <table class="posts">
+        <table class="post">
             <tr><td>@post.postAddedAt</td></tr>
             <tr><td>@post.postContent</td></tr>
             <tr><td>@Html.ActionLink("Read more..", "Post", new {id = post.postId})</td></tr>
