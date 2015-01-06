@@ -1,0 +1,41 @@
+﻿@model Blogg.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.postAuthor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postAuthor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postAddedAt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postAddedAt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postContent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postContent)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.postId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
