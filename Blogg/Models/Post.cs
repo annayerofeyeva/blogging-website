@@ -68,6 +68,24 @@ namespace Blogg.Models
             }
         }
 
+        public void DeletePost(Post post)
+        {
+            string connectionString = ConfigurationManager.ConnectionStrings["PostContext"].ConnectionString;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("spDeletePost", con);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlParameter paramId = new SqlParameter();
+                paramId.ParameterName = "@postId";
+                paramId.Value = post.postId;
+                cmd.Parameters.Add(paramId);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 
 

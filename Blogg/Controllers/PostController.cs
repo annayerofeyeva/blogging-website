@@ -57,5 +57,15 @@ namespace Blogg.Controllers
             post.EditPost(post);
             return RedirectToAction("Index");
         }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            PostContext postContext = new PostContext();
+            Post post = postContext.Posts.Single(pst => pst.postId == id);
+            post.DeletePost(post);
+            return RedirectToAction("Index");
+        }
+
     }
 }
