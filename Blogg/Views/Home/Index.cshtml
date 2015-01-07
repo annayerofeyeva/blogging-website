@@ -23,7 +23,7 @@
             <tr><td>@Html.ActionLink("Read more..", "../Post/Details", new {id = post.postId})</td></tr>
         </table>
     }
-    <input id="Button1" type="button" value="Older posts" />
+    @Html.ActionLink("Older posts", "../Post/Index")
 </div>
 
 <div class="row">
