@@ -33,10 +33,28 @@ namespace Blogg.Controllers
         public ActionResult Create(FormCollection formCollection)
         {
             Post post = new Post();
-            post.postAuthor = "Alexander";
+            post.postAuthor = "Admin";
             post.postAddedAt = DateTime.Now;
             post.postContent = formCollection["postContent"];
             post.AddPost(post);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            PostContext postContext = new PostContext();
+            Post post = postContext.Posts.Single(pst => pst.postId == id);
+            return View(post);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection formCollection)
+        {
+            PostContext postContext = new PostContext();
+            Post post = postContext.Posts.Single(pst => pst.postId == id);
+            post.postContent = formCollection["postContent"];
+            post.EditPost(post);
             return RedirectToAction("Index");
         }
     }
