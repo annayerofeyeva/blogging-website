@@ -13,7 +13,9 @@ namespace Blogg.Controllers
         {
             PostContext postContext = new PostContext();
             List<Post> posts = postContext.Posts.ToList();
-            return View(posts);
+            posts.Reverse();
+            List<Post> lastFourPosts = posts.Take(4).ToList();
+            return View(lastFourPosts);
         }
 
         public ActionResult About()
