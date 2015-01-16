@@ -24,12 +24,14 @@ namespace Blogg.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Create(FormCollection formCollection)
         {
             Post post = new Post();
@@ -41,6 +43,7 @@ namespace Blogg.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Edit(int id)
         {
             PostContext postContext = new PostContext();
@@ -49,6 +52,7 @@ namespace Blogg.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public ActionResult Edit(int id, FormCollection formCollection)
         {
             PostContext postContext = new PostContext();
@@ -59,6 +63,7 @@ namespace Blogg.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ActionResult Delete(int id)
         {
             PostContext postContext = new PostContext();

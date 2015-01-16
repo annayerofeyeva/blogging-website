@@ -35,7 +35,13 @@
 
     </dl>
 </div>
+@if(User.Identity.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.postId }) |
+    </p>
+}
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.postId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+

@@ -5,10 +5,12 @@
 }
 
 <h2>All posts</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if(User.Identity.IsAuthenticated)
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+}
 <table class="table">
     <tr>
         <th>
@@ -34,10 +36,17 @@
         <td>
             @Html.DisplayFor(modelItem => item.postContent)
         </td>
+        @if(User.Identity.IsAuthenticated)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.postId }) |
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id=item.postId })
+            </td>
+        }
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.postId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.postId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.postId })
+                @Html.ActionLink("Details", "Details", new { id=item.postId }) |
         </td>
     </tr>
 }
